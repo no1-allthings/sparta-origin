@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <title>스파르타코딩클럽 | homework</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+    <style>
+
+      * {
+        font-family: 'Gowun Dodum', sans-serif;
+      }
+      .mytitle{
+
+        height:300px;
+        width:100%;
+
+        color:white;
+
+
+        background-image:linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://img.mbn.co.kr/filewww/news/other/2011/05/16/061032020001.jpg);
+        background-size:center;
+        background-position:cover;
+
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+      }
+
+      .wrap{
+        max-width:500px;
+        width:95%;
+        margin:20px auto 0 auto;
+      }
+
+      .mypost{
+        max-width:500px;
+        width:95%;
+        margin:20px auto 0px auto;
+        box-shadow:0px 0px 3px 0px gray;
+        padding:20px;
+      }
+
+      .mybtn{
+        align-items:left;
+        margin-top:20px;
+      }
+
+    </style>
+
+    <script>
+       $(document).ready(function(){
+            $.ajax({
+              type: "GET",
+              url: "http://spartacodingclub.shop/sparta_api/weather/pusan",
+              data: {},
+              success: function(response){
+                  let temp = response['temp']
+                  $('#temp').text(temp)
+                }
+              })
+        });
+
+    </script>
+
+</head>
+
+<body>
+  <div class="mytitle">
+<!--    <h1>박소현 팬명록</h1>-->
+    <span style="font-size:50px; color:white;" >박소현 팬명록</span>
+    <p></p>
+    <p>현재기온: <span id="temp">00.0</span>도</p>
+  </div>
+
+  <div class="mypost">
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="floatingInput">
+      <label for="floatingInput">닉네임</label>
+    </div>
+
+    <div class="form-floating">
+      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+      <label for="floatingTextarea">응원댓글</label>
+    </div>
+
+    <div class="mybtn">
+      <button type="button" class="btn btn-dark">기록하기</button>
+    </div>
+
+  </div>
+
+    <div class="wrap">
+      <div class="card">
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>새로운 방송 넘 좋아요.</p>
+            <footer class="blockquote-footer"><cite title="Source Title">호빵맨</cite></footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="card">
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>새로운 방송 넘 좋아요.</p>
+            <footer class="blockquote-footer"><cite title="Source Title">호빵맨</cite></footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="card">
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>새로운 방송 넘 좋아요.</p>
+            <footer class="blockquote-footer"><cite title="Source Title">호빵맨</cite></footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+
+</body>
+
+</html>

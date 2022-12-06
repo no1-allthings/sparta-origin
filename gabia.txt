@@ -1,0 +1,6 @@
+	
+ns.gabia.co.kr 211.234.118.50
+
+ns1.gabia.co.kr 121.78.117.39
+
+ns.gabia.net 110.45.166.50

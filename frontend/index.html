@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <title>스파르타코딩클럽 | 부트스트랩 연습하기</title>
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="mystyle.css">
+
+    <script>
+       $(document).ready(function(){
+          listing();
+        });
+
+          function listing() {
+          $('#card-box').empty()
+          $.ajax({
+            type: "GET",
+            url: "http://spartacodingclub.shop/web/api/movie",
+            data: {},
+            success: function(response){
+              let rows = response['movies']
+              for(let i = 0; i < rows.length; i++){
+                let title = rows[i]['title']
+                let desc = rows[i]['desc']
+                let image = rows[i]['image']
+                let star = rows[i]['star']
+                let comment = rows[i]['comment']
+
+                let star_image = '⭐'.repeat(star)
+                let y_h = `<div class="col">
+                            <div class="card">
+                              <img src="${image}"
+                                   class="card-img-top" alt="...">
+                              <div class="card-body">
+                                <h5 class="card-title">${title}</h5>
+                                <p class="card-text">${desc}</p>
+                                <p>${star_image}</p>
+                                <p class="mycomment">${comment}</p>
+                              </div>
+                            </div>
+                          </div>`
+                $('#card-box').append(y_h)
+              }
+            }
+          })
+       }
+
+
+        function open_post(){
+          $('#mypost').show()
+        }
+
+         function close_post(){
+          $('#mypost').hide()
+        }
+    </script>
+</head>
+
+<body>
+  <div class="mytitle">
+    <h1>내 생애 최고의 영화들</h1>
+    <button onclick="open_post()">영화기록하기</button>
+  </div>
+
+  <div id="mypost" class="mypost">
+
+    <div class="form-floating mb-3">
+      <input type="url" class="form-control" id="floatingInput">
+      <label for="floatingInput">영화URL</label>
+    </div>
+
+    <div class="input-group mb-3">
+      <label class="input-group-text" for="inputGroupSelect01">별점</label>
+      <select class="form-select" id="inputGroupSelect01">
+        <option selected>Choose...</option>
+        <option value="one">⭐</option>
+        <option value="two">⭐⭐</option>
+        <option value="three">⭐⭐⭐</option>
+        <option value="four">⭐⭐⭐⭐</option>
+        <option value="five">⭐⭐⭐⭐⭐</option>
+      </select>
+    </div>
+
+    <div class="form-floating">
+      <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+      <label for="floatingTextarea">코멘트</label>
+    </div>
+
+    <div class="mybtn">
+      <button type="button" class="btn btn-dark">기록하기</button>
+      <button onclick="close_post()" type="button" class="btn btn-light">닫기</button>
+    </div>
+
+
+  </div>
+  <div class="wrap">
+    <div id="card-box" class="row row-cols-1 row-cols-md-4 g-4">
+      <div class="col">
+        <div class="card">
+          <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+               class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">여기에 제목이 들어갑니다.</h5>
+            <p class="card-text">여기에 내용이 들어 가지요.</p>
+            <p>⭐⭐⭐</p>
+            <p class="mycomment">여기에 코멘트가 들어갑니다</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+               class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">여기에 제목이 들어갑니다.</h5>
+            <p class="card-text">여기에 내용이 들어 가지요.</p>
+            <p>⭐⭐⭐</p>
+            <p class="mycomment">여기에 코멘트가 들어갑니다</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+               class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">여기에 제목이 들어갑니다.</h5>
+            <p class="card-text">여기에 내용이 들어 가지요.</p>
+            <p>⭐⭐⭐</p>
+            <p class="mycomment">여기에 코멘트가 들어갑니다</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card">
+          <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
+               class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">여기에 제목이 들어갑니다.</h5>
+            <p class="card-text">여기에 내용이 들어 가지요.</p>
+            <p>⭐⭐⭐</p>
+            <p class="mycomment">여기에 코멘트가 들어갑니다</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
